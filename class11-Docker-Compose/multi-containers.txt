@@ -12,6 +12,10 @@ then use compose to assemble the images using the build command.
 **************************************************************
 Docker Compose
 
+TO practise the docker compse, you need to install the parkage by running the following command
+
+yum install docker-compose
+
 save the below in docker-compose.yaml
 
 version: "2"
@@ -63,7 +67,6 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -a -q)
 
 **************************************************************************************
-
 
 version: '3'
 services:
