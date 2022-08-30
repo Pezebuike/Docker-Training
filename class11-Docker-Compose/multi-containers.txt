@@ -88,3 +88,8 @@ services:
     - MYSQL_DATABASE=demodb
     
     
+    Then run the command 
+    
+    docker-compose up -d 
+    
+    
