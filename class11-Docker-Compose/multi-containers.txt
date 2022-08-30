@@ -69,6 +69,7 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -a -q)
 
 **************************************************************************************
+yum install docker-compose -y
 
 version: '3'
 services:
