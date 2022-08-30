@@ -14,7 +14,7 @@ Docker Compose
 
 TO practise the docker compse, you need to install the parkage by running the following command
 
-yum install docker-compose
+yum install docker-compose -y
 
 save the below in docker-compose.yaml
 
