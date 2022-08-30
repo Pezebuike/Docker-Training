@@ -18,6 +18,8 @@ yum install docker-compose -y
 
 save the below in docker-compose.yaml
 
+vim decker-compose.yaml
+
 version: "2"
 services:
   webserver:
