@@ -1,5 +1,10 @@
 Docker Installation in UBUNTU
 
+# change to root user 
+sudo su
+
+# install the perocusites 
+
 sudo apt-get update
 sudo apt-get install \
     apt-transport-https \
@@ -7,41 +12,92 @@ sudo apt-get install \
     curl \
     gnupg-agent \
     software-properties-common
+    
+    # Add the gpg key
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# install the docker software
 
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
    
+   # best pratise to get update request so update the installed package 
+   
 sudo apt-get update
+
+# install docker community edition
+# docker-ce means community edition
+# docker-ee means enterprise edition
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 
+# start the docker engin 
+
 sudo systemctl start docker
+
+# Enable the engine by reboot the docker engine
 
 sudo systemctl enable docker
 
+# If there is need to enble other user that are part docker of the project group  you have to run this command for then to get access too
+# Note that you need to add the user name (<usernmser>) is the bracket bellow
+# but if you are the only root user, there is no need to run the next command 
+
 sudo gpasswd -a <username> docker
 
-*********************************************************************************
+# you can check the docker version 
 
-Docker Installation in CentOS
+docker -v
+
+# To make sure docker is working properly search for any machine name e.g 
+
+docker search centos
+
+
+*********************************************************************************
+# swict root in another machine eg centos 
+
+sudo su
+
+# go to another machine example cento and install the periocusites 
+# Docker Installation in CentOS
 
 sudo yum install -y yum-utils \
   device-mapper-persistent-data \
   lvm2
+# To refresh the machine whenever is hanging use
+yum repo list 
+
+# Addin the repo
+# you can add the repo using wget or copy the file in centos/ctc/m.repos.d and place threpo file 
+# you can also use yum config manager as bellow 
 
 sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
-
+    
+# to list existing repo use this command 
+ 
+ls -itrh /etc/yum.repos.d/ 
+ 
+# install the docker community edition 
 
 sudo yum install docker-ce docker-ce-cli containerd.io -y
 
+# start the docker 
+
 sudo systemctl start docker
 
+# Enable the docker 
+
 sudo systemctl enable docker
+
+# If there is need to enble other user that are part docker of the project group  you have to run this command for then to get access too
+# Note that you need to add the user name (<usernmser>) is the bracket bellow
+# but if you are the only root user, there is no need to run the next command 
+
 
 sudo gpasswd -a <username> docker
