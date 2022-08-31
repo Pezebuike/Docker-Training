@@ -99,5 +99,8 @@ sudo systemctl enable docker
 # Note that you need to add the user name (<usernmser>) is the bracket bellow
 # but if you are the only root user, there is no need to run the next command 
 
-
 sudo gpasswd -a <username> docker
+
+# To check password 
+
+cat /etc/passwd
