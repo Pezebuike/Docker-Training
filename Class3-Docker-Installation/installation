@@ -104,3 +104,7 @@ sudo gpasswd -a <username> docker
 # To check password 
 
 cat /etc/passwd
+
+# to check group
+
+cat /etc/group
