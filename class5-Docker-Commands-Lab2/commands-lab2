@@ -18,10 +18,17 @@ docker ps -a -q
 docker rm $(docker ps -a -q)
 
 *******************************************************************************************************************************
+# this will display all images
+
+docker images
+
+# this will display all docker images ID
+
+docker images -a -q
 
 # To remove all docker images in a single command,
 
-[root@docker-host ~]# docker rmi $(docker images -a -q)
+docker rmi $(docker images -a -q)
 
 *******************************************************************************************************************************
 
