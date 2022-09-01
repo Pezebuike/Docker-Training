@@ -1,4 +1,4 @@
-Docker Installation in UBUNTU
+# Docker Installation in UBUNTU
 
 # change to root user 
 sudo su
@@ -16,7 +16,7 @@ sudo apt-get install \
     gnupg-agent \
     software-properties-common
     
-    # Add the gpg key
+# Add the gpg key
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
@@ -27,7 +27,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
    
-   # best pratise to get update request so update the installed package 
+# best pratise to get update request so update the installed package 
    
 sudo apt-get update
 
@@ -59,8 +59,10 @@ docker -v
 
 docker search centos
 
-
+END 
 *********************************************************************************
+# INSTULLATION OF CENTOS
+
 # swict root in another machine eg centos 
 
 sudo su
