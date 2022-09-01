@@ -37,11 +37,15 @@ docker rmi $(docker images -a -q)
 # To review the list of exited containers, use the -f flag to filter based on status. 
 # When you've verified you want to remove those containers, using -q to pass the IDs to the docker rm command.
 
-# List:
+# display List of exited container:
 
 docker ps -a -f status=exited
 
-# Remove:
+# dsplay list of exited container ID 
+
+docker ps -a -f status=exited -q
+
+# Remove all exited container ID:
 
 docker rm $(docker ps -a -f status=exited -q)
 
@@ -51,11 +55,15 @@ docker rm $(docker ps -a -f status=exited -q)
 # you can use two filters:
 
 *******************************************************************************************************************************
-# List:
+# display the List of all container status:
 
 docker ps -a -f status=exited -f status=created
 
-# Remove:
+# To retrive only the container ID:
+
+docker ps -a -f status=exited -f status=created -q
+
+# Remove all container:
 
 docker rm $(docker ps -a -f status=exited -f status=created -q)
 
@@ -65,13 +73,20 @@ docker rm $(docker ps -a -f status=exited -f status=created -q)
 # You can review the containers on your system with docker ps. Adding the -a flag will show all containers. When you're sure you want to delete them,
 # you can add the -q flag to supply the IDs to the docker stop and docker rm commands:
 
-# List:
+# fetch the List of all image both up and exited:
 
 docker ps -a
 
-# Remove:
+# fetch all exitec container ID:
+
+docker ps -a -q
+
+# Stop all running container ID:
 
 docker stop $(docker ps -a -q)
+
+# Remove all container ID:
+
 docker rm $(docker ps -a -q)
 
 # to see the container statistics
@@ -85,15 +100,17 @@ docker history <imageid>
 
 *******************************************************************************************************************************
 
-# How to remove or delete Docker Images?
+# How to remove or delete a paticular Docker Images?
 # use "docker images" to find the Docker Image ID or Image Name and use "docker rmi" command  to remove or delete docker images.
-[root@docker-host ~]# docker rmi 49f7960eb7e4
+ docker rmi 49f7960eb7e4
 
 # To remove multiple docker images, mention the docker images ID separated by spaces as below.
-[root@docker-host ~]# docker rmi 49f7960eb7e4 47fjay738290 987tr78rt5g5
+
+docker rmi 49f7960eb7e4 47fjay738290 987tr78rt5g5
 
 # To remove all docker images in a single command,
-[root@docker-host ~]# docker rmi $(docker images -a -q)
+
+docker rmi $(docker images -a -q)
 
 *******************************************************************************************************************************
 # Downloading image
