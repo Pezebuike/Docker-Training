@@ -1,10 +1,19 @@
+# this will dislay all running containers
+
+docker ps -a
+
 *******************************************************************************************************************************
 # To stop any running container
-
+ 
 docker stop $(docker ps -q)  
 
 *******************************************************************************************************************************
+# this will display all exited containers 
+
+docker ps -a -q
+
 # To remove all the containers
+# Note: this will romove all exited containers
 
 docker rm $(docker ps -a -q)
 
