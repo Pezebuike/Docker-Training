@@ -3,9 +3,12 @@ Docker Installation in UBUNTU
 # change to root user 
 sudo su
 
-# install the perocusites 
+# update the Mechine 
 
 sudo apt-get update
+
+# install the perocusites 
+
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -69,7 +72,8 @@ sudo yum install -y yum-utils \
   device-mapper-persistent-data \
   lvm2
 # To refresh the machine whenever is hanging use
-yum repo list 
+
+yum repolist 
 
 # Addin the repo
 # you can add the repo using wget or copy the file in centos/ctc/m.repos.d and place threpo file 
