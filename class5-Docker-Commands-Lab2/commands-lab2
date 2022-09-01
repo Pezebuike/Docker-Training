@@ -1,115 +1,117 @@
 *******************************************************************************************************************************
-To stop any running container
+# To stop any running container
 
 docker stop $(docker ps -q)  
 
 *******************************************************************************************************************************
-To remove all the containers
+# To remove all the containers
 
 docker rm $(docker ps -a -q)
 
 *******************************************************************************************************************************
 
-To remove all docker images in a single command,
+# To remove all docker images in a single command,
+
 [root@docker-host ~]# docker rmi $(docker images -a -q)
 
 *******************************************************************************************************************************
 
-Remove all exited containers
-You can locate containers using docker ps -a and filter them by their status: created, restarting, running, paused, or exited. 
-To review the list of exited containers, use the -f flag to filter based on status. 
-When you've verified you want to remove those containers, using -q to pass the IDs to the docker rm command.
+# Remove all exited containers
+# You can locate containers using docker ps -a and filter them by their status: created, restarting, running, paused, or exited. 
+# To review the list of exited containers, use the -f flag to filter based on status. 
+# When you've verified you want to remove those containers, using -q to pass the IDs to the docker rm command.
 
-List:
+# List:
 
 docker ps -a -f status=exited
 
-Remove:
+# Remove:
 
 docker rm $(docker ps -a -f status=exited -q)
 
-Remove containers using more than one filter.Docker filters can be combined by repeating the filter flag with an additional value. 
-This results in a list of containers that meet either condition. 
-For example, if you want to delete all containers marked as either Created (a state which can result when you run a container with an invalid command) or Exited, 
-you can use two filters:
+# Remove containers using more than one filter.Docker filters can be combined by repeating the filter flag with an additional value. 
+# This results in a list of containers that meet either condition. 
+# For example, if you want to delete all containers marked as either Created (a state which can result when you run a container with an invalid command) or Exited, 
+# you can use two filters:
 
 *******************************************************************************************************************************
-List:
+# List:
 
 docker ps -a -f status=exited -f status=created
 
-Remove:
+# Remove:
 
 docker rm $(docker ps -a -f status=exited -f status=created -q)
 
-Remove containers according to a pattern
+# Remove containers according to a pattern
 
-Stop and remove all containers
-You can review the containers on your system with docker ps. Adding the -a flag will show all containers. When you're sure you want to delete them,
-you can add the -q flag to supply the IDs to the docker stop and docker rm commands:
+# Stop and remove all containers
+# You can review the containers on your system with docker ps. Adding the -a flag will show all containers. When you're sure you want to delete them,
+# you can add the -q flag to supply the IDs to the docker stop and docker rm commands:
 
-List:
+# List:
 
 docker ps -a
-Remove:
+
+# Remove:
 
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 
-to see the container statistics
+# to see the container statistics
 
 docker stats 71207cb18cae
 
 ******************************************************************************************************************************
-to see the docker master image history
+# to see the docker master image history
 
 docker history <imageid>
 
 *******************************************************************************************************************************
 
-How to remove or delete Docker Images?
-use "docker images" to find the Docker Image ID or Image Name and use "docker rmi" command  to remove or delete docker images.
+# How to remove or delete Docker Images?
+# use "docker images" to find the Docker Image ID or Image Name and use "docker rmi" command  to remove or delete docker images.
 [root@docker-host ~]# docker rmi 49f7960eb7e4
 
-To remove multiple docker images, mention the docker images ID separated by spaces as below.
+# To remove multiple docker images, mention the docker images ID separated by spaces as below.
 [root@docker-host ~]# docker rmi 49f7960eb7e4 47fjay738290 987tr78rt5g5
 
-To remove all docker images in a single command,
+# To remove all docker images in a single command,
 [root@docker-host ~]# docker rmi $(docker images -a -q)
 
 *******************************************************************************************************************************
-Downloading image
-Let’s say you need to pull the docker image from dockerhub (docker repository). The following example of pulling the Apache HTTP server image.
+# Downloading image
+# Let’s say you need to pull the docker image from dockerhub (docker repository). The following example of pulling the Apache HTTP server image.
 
 docker pull httpd
 
-Images
-List all the docker images pulled on the system with image details such as TAG/IMAGE ID/SIZE etc.
+# Images
+# List all the docker images pulled on the system with image details such as TAG/IMAGE ID/SIZE etc.
 
 docker images
 
 *******************************************************************************************************************************
-Run
-Run the docker image mentioned in the command. This command will create a docker container in which the Apache HTTP server will run.
+# Run
+# Run the docker image mentioned in the command. This command will create a docker container in which the Apache HTTP server will run.
 
 docker run -it -d httpd
 
 
 *******************************************************************************************************************************
-What’s running?
-ps lists all the docker containers are running with container details.
+# What’s running?
+# ps lists all the docker containers are running with container details.
 
 docker ps
 
 *******************************************************************************************************************************
 ps -a
-List all the docker containers running/exited/stopped with container details.
+# List all the docker containers running/exited/stopped with container details.
 
 docker ps -a
 
 *******************************************************************************************************************************
-exec
-Access the docker container and run commands inside the container. I am accessing the apache server container in this example.
+# exec
+# Access the docker container and run commands inside the container. I am accessing the apache server container in this example.
 
 docker ps -a
 
