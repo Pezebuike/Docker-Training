@@ -1,22 +1,30 @@
-What is dangling Docker image?
+# What is dangling Docker image?
 
-A dangling image means that you've created a new build of the image but haven't given it a new name. Think about those old, forgotten images that no one knows 
-what to do with anymore – those are "dangling images". They are left untagged and display <none> on their name when you run docker images 
+# A dangling image means that you've created a new build of the image but haven't given it a new name. Think about those old, forgotten images that no one knows 
+# what to do with anymore – those are "dangling images". They are left untagged and display <none> on their name when you run docker images 
 
 *************************************************************************************************************************************************************
-How do I stop Docker images from dangling?
+# How do I stop Docker images from dangling?
 
-You can avoid this situation by providing a tag when you build, and you can retroactively tag an images with the docker tag command. 
+# You can avoid this situation by providing a tag when you build, and you can retroactively tag an images with the docker tag command. 
 
-List: docker images -f dangling=true
+# List: 
 
-Vi Dockerfile
+docker images -f dangling=true
+
+# to save the file
+
+vi Dockerfile
+
+# use the command bellow to run build a dangling image
 
 FROM ubuntu:latest
 RUN apt update
 RUN apt install -y nginx
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
+
+# to see tha dangling image
 
 docker build . 
 
